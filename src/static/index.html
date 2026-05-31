@@ -44,6 +44,49 @@
         </form>
         <div id="message" class="hidden"></div>
       </section>
+
+      <section id="consultants-container">
+        <h3>Consultant Profiles</h3>
+        <form id="consultant-form">
+          <h4 id="consultant-form-title">Create Consultant Profile</h4>
+          <div class="form-group">
+            <label for="consultant-email">Consultant Email:</label>
+            <input type="email" id="consultant-email" required placeholder="consultant@slalom.com" />
+          </div>
+          <div class="form-group">
+            <label for="consultant-name">Consultant Name:</label>
+            <input type="text" id="consultant-name" required placeholder="Jordan Lee" />
+          </div>
+          <div class="form-group">
+            <label for="consultant-practice-area">Practice Area:</label>
+            <select id="consultant-practice-area" required>
+              <option value="">-- Select a practice area --</option>
+              <option value="Technology">Technology</option>
+              <option value="Strategy">Strategy</option>
+              <option value="Operations">Operations</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="consultant-availability">Availability:</label>
+            <input type="text" id="consultant-availability" placeholder="20 hours/week" />
+          </div>
+          <div class="form-group">
+            <label for="consultant-certifications">Certifications:</label>
+            <input type="text" id="consultant-certifications" placeholder="AWS Solutions Architect, SAFe Agilist" />
+          </div>
+          <div class="form-group">
+            <label for="consultant-skills">Skills:</label>
+            <input type="text" id="consultant-skills" placeholder="Cloud Architecture, Facilitation" />
+          </div>
+          <div class="form-actions">
+            <button type="submit" id="consultant-submit">Save Consultant Profile</button>
+            <button type="button" id="consultant-cancel" class="secondary-btn hidden">Cancel Edit</button>
+          </div>
+        </form>
+        <div id="consultants-list">
+          <p>Loading consultant profiles...</p>
+        </div>
+      </section>
     </main>
 
     <footer>

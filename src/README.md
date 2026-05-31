@@ -9,8 +9,9 @@ A FastAPI application that enables Slalom consultants to register their capabili
 ## Features
 
 - View all available consulting capabilities
+- Create and update consultant profiles independently of capability registration
 - Register consultant expertise and availability
-- Track skill levels and certifications
+- Persist consultant profiles and capability assignments in a local JSON store
 - Manage capability capacity and team assignments
 
 ## Getting Started
@@ -18,13 +19,13 @@ A FastAPI application that enables Slalom consultants to register their capabili
 1. Install the dependencies:
 
    ```
-   pip install fastapi uvicorn
+   pip install -r requirements.txt
    ```
 
 2. Run the application:
 
    ```
-   python app.py
+   python -m uvicorn src.app:app --reload
    ```
 
 3. Open your browser and go to:
@@ -37,6 +38,10 @@ A FastAPI application that enables Slalom consultants to register their capabili
 | Method | Endpoint                                                          | Description                                                         |
 | ------ | ----------------------------------------------------------------- | ------------------------------------------------------------------- |
 | GET    | `/capabilities`                                                   | Get all capabilities with details and current consultant assignments |
+| GET    | `/consultants`                                                   | List consultant profiles and their assigned capabilities             |
+| GET    | `/consultants/{email}`                                           | Get an individual consultant profile                                |
+| POST   | `/consultants`                                                   | Create a consultant profile                                          |
+| PATCH  | `/consultants/{email}`                                           | Update a consultant profile                                          |
 | POST   | `/capabilities/{capability_name}/register?email=consultant@slalom.com` | Register consultant for a capability                     |
 | DELETE | `/capabilities/{capability_name}/unregister?email=consultant@slalom.com` | Unregister consultant from a capability              |
 
@@ -50,18 +55,18 @@ The application uses a consulting-focused data model:
    - Practice area (Strategy, Technology, Operations)
    - Industry verticals served
    - Required certifications
-   - List of consultant emails registered
+   - List of consultant profile references registered to the capability
    - Available capacity (hours per week)
-   - Geographic location preferences
 
 2. **Consultants** - Uses email as identifier:
    - Name
    - Practice area
-   - Skill level
+   - Skills
    - Certifications
    - Availability
+   - Current capability assignments
 
-All data is currently stored in memory for this learning exercise. In a production environment, this would be backed by a robust database system.
+Application data is persisted in `src/data/store.json`. The app seeds that file automatically the first time it starts so consultant profiles, capabilities, and assignments survive restart.
 
 ## Future Enhancements
 
