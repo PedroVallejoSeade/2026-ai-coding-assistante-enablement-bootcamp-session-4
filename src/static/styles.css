@@ -140,11 +140,23 @@ section h3 {
   border-radius: 6px;
 }
 
+.consultant-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
 .consultant-email {
   flex-grow: 1;
   margin-right: 8px;
   font-weight: 500;
   color: #003d7a;
+}
+
+.consultant-meta {
+  color: #5f6b7a;
+  font-size: 0.9rem;
 }
 
 .delete-btn {
@@ -210,6 +222,54 @@ button[type="submit"]:hover {
   background: linear-gradient(135deg, #0066cc, #1976d2);
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 61, 122, 0.3);
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.secondary-btn,
+.edit-btn {
+  background: white;
+  color: #003d7a;
+  border: 1px solid #003d7a;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.secondary-btn:hover,
+.edit-btn:hover {
+  background: #e3f2fd;
+}
+
+.consultant-profile-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.consultant-profile-card {
+  border: 1px solid #d7e6f7;
+  border-radius: 10px;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+  background: linear-gradient(145deg, #ffffff, #f8fbff);
+}
+
+.consultant-profile-card h4 {
+  color: #003d7a;
+  margin-bottom: 6px;
+}
+
+.consultant-profile-card p {
+  margin-bottom: 6px;
 }
 
 .message {
@@ -303,5 +363,9 @@ footer {
   
   .header-text h2 {
     font-size: 1rem;
+  }
+
+  .consultant-profile-card {
+    flex-direction: column;
   }
 }
